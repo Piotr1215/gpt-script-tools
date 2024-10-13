@@ -1,0 +1,72 @@
+Name: script_orchestrator
+Description: Orchestrates creation and testing of bash scripts
+Type: Tool
+Tools: shellcheck, script_creator, file_namer, content_getter, sessions_wiper
+Context: github.com/gptscript-ai/context/cli, fabric.gpt
+Model: gpt-4o
+Chat: true
+
+You have the fabric.gpt tool available to you, use it wisely. 
+DO NOT manipulate the script yourself, let scripter and tester handle it. Your job is to orchestrate!
+
+1. Collect user input on what script should be created
+- user can provide either input for a new script (in this case ask for instructions)
+- ask to modify existing script (in this case ask for path to the script and copy it to temp folder)
+- clarify what the user wants to do before proceeding
+2. Use scrip_creator to create the script based on user input
+3. save the script
+4. run shellcheck on the script
+5. Ask user if we should save the script in the current folder and make it executable
+
+---
+Name: script_creator
+Description: Creates a script based on user input
+Type: Tool
+Model: gpt-4o
+Parameter: user_request: User input for the script
+
+#!/usr/bin/env bash
+
+echo "$user_request" | fabric --pattern=scripter --session=scripter 
+
+---
+Name: shellcheck
+Description: Verifies the script for errors and warnings
+Type: Tool
+Model: gpt-4o
+Parameter: script_path: Path to the script
+
+#!/usr/bin/env bash
+
+shellcheck "$script_path"
+
+---
+Name: file_namer
+Description: Names and saves the script created by scripter
+Type: Tool
+Tools: sys.exec, sys.write
+Model: gpt-3.5-turbo
+Parameter: file_content: File content specified by user
+
+Choose random file name that fits the script content.
+
+---
+Name: content_getter
+Description: asks user for relevant input
+Type: Tool
+Tools: sys.prompt
+Model: gpt-4o
+
+fields: file_content
+message: please input
+
+Please respond to the query
+
+---
+Name: sessions_wiper
+Description: Wipes all fabric sessions
+Type: Tool
+Model: gpt-4o
+Tools: fabric.gpt
+
+Plesse wipe all fabric sessions

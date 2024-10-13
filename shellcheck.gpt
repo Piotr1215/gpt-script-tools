@@ -1,0 +1,8 @@
+---
+Name: shellcheck
+
+#!/usr/bin/env bash
+
+echo "The following is the help text for the shellcheck cli, use it to veryify your shell scripts"
+shellcheck --help
+tldr shellcheck

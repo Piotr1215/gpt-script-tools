@@ -1,0 +1,10 @@
+---
+Name: fabric
+
+#!/usr/bin/env bash
+
+echo "The following is the help text for the fabric cli and all available prompts. Feel free to use those prompts if as additional tools if the need arises."
+echo "Remember that you need to pipe the output of the command to a fabric prompt to make it work"
+echo "Here is the CLI help and available prompts:"
+fabric --help
+fabric -l
