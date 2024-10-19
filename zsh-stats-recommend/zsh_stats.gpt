@@ -1,0 +1,7 @@
+Name: zsh stats analyzer
+Description: Analyze zsh command history to provide insights and recommendations
+Tools: github.com/gptscript-ai/structured-data-querier, zsh-analyzer.gpt
+Context: github.com/gptscript-ai/context/workspace
+Chat: true
+
+Help me analyze my zsh command history to provide insights and recommendations.

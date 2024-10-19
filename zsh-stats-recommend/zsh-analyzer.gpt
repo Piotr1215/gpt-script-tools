@@ -1,0 +1,3 @@
+Name: zsh-analyzer
+
+#!/usr/bin/env python3 ${GPTSCRIPT_TOOL_DIR}/scripts/zsh_stats_converter.py
