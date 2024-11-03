@@ -25,4 +25,4 @@ Description: Weather weather-tool
 
 #!/usr/bin/env bash
 
-curl wttr.in/Hanau
+curl -s wttr.in/Hanau

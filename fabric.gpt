@@ -4,7 +4,7 @@ Name: fabric
 #!/usr/bin/env bash
 
 echo "The following is the help text for the fabric cli and all available prompts. Feel free to use those prompts if as additional tools if the need arises."
-echo "Remember that you need to pipe the output of the command to a fabric prompt to make it work"
+echo "IMPORTANT: Remember that you need to pipe user's request to the fabric prompt to make it work. Example: echo 'user input' | fabric -p explain_code or if reading from a file echo /path/to/file | fabric -p explain_code"
 echo "Here is the CLI help and available prompts:"
 fabric --help
 fabric -l
